@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.item.mapper.ProductMapper">
+
+    <update id="deductStock">
+        UPDATE product
+        SET stock = stock - CASE
+        <foreach collection="list" item="item" separator="">
+            WHEN product_id = #{item.productId} THEN #{item.amount}
+        </foreach>
+        END
+        WHERE product_id IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item.productId}
+        </foreach>
+        <!-- 核心：确保每个商品扣减后库存不为负 -->
+        AND
+        CASE
+        <foreach collection="list" item="item" separator="">
+            WHEN product_id = #{item.productId} THEN stock >= #{item.amount}
+        </foreach>
+        END
+    </update>
+
+
+
+</mapper>

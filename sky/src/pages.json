@@ -1,0 +1,65 @@
+{
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+			"sky(.*)": "@/components/sky$1.vue"
+		}
+	},
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "个人"
+			}
+		},
+		{
+			"path": "pages/user/userDetail",
+			"style": {
+				"navigationBarTitleText": "个人资料"
+			}
+		},
+		{
+			"path": "pages/goods/goods",
+			"style": {
+				"navigationBarTitleText": "下单"
+			}
+		},
+		{
+			"path": "pages/goods/toOrder",
+			"style": {
+				"navigationBarTitleText": "订单结算"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#00BFFF",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"position": "bottom",
+		"custom": false,
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "个人中心"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
